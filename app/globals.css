@@ -6,10 +6,96 @@ body {
 }
 
 body {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+@keyframes radarPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.2;
+  }
+  70% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.16);
+    opacity: 0;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-50%, 36vh);
+    opacity: 1;
+  }
+}
+
+@keyframes circuitFlash {
+  0% {
+    filter: brightness(1);
+    box-shadow: none;
+  }
+  30% {
+    filter: brightness(1.38) saturate(1.35);
+    box-shadow: 0 0 0.55rem rgba(34, 211, 238, 0.48), 0 0 1.25rem rgba(56, 189, 248, 0.3);
+  }
+  65% {
+    filter: brightness(0.92);
+    box-shadow: 0 0 0.25rem rgba(34, 211, 238, 0.24);
+  }
+  100% {
+    filter: brightness(1);
+    box-shadow: none;
+  }
+}
+
+@keyframes circuitSweep {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(220%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -160%;
+  width: 60%;
+  height: 340%;
+  background: linear-gradient(120deg, transparent, rgba(125, 211, 252, 0.75), transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+button:active {
+  animation: circuitFlash 0.26s ease-out;
+}
+
+button:active::after {
+  opacity: 1;
+  animation: circuitSweep 0.34s ease-out;
 }

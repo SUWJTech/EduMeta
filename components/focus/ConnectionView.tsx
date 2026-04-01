@@ -17,7 +17,7 @@ function Avatar({ label }: { label: string }) {
   );
 }
 
-function StatusCard({ title }: { title: string }) {
+function StatusCard({ title, timeText }: { title: string; timeText: string }) {
   return (
     <section className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-lg">
       <div className="flex items-center justify-between">
@@ -25,20 +25,28 @@ function StatusCard({ title }: { title: string }) {
         <div className="h-2 w-2 rounded-full bg-meta-secondary shadow-[0_0_14px_rgba(6,182,212,0.55)]" />
       </div>
       <div className="mt-3 grid gap-2">
-        <div className="text-sm text-white/85">25:00 Session</div>
+        <div className="text-sm text-white/85">{timeText}</div>
         <div className="text-xs text-white/50">Ambient: Quiet • Mode: Deep</div>
       </div>
     </section>
   );
 }
 
-export default function ConnectionView({ onDisconnect }: { onDisconnect: () => void }) {
+export default function ConnectionView({
+  onDisconnect,
+  partnerLabel,
+  timeText,
+}: {
+  onDisconnect: () => void;
+  partnerLabel: string;
+  timeText: string;
+}) {
   return (
     <div className="flex flex-col gap-4">
       <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-lg">
         <Avatar label="You" />
         <div className="mt-3">
-          <StatusCard title="Your Focus" />
+          <StatusCard title="Your Focus" timeText={timeText} />
         </div>
       </div>
 
@@ -61,9 +69,9 @@ export default function ConnectionView({ onDisconnect }: { onDisconnect: () => v
       </div>
 
       <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-lg">
-        <Avatar label="User_a7F" />
+        <Avatar label={partnerLabel} />
         <div className="mt-3">
-          <StatusCard title="Partner Focus" />
+          <StatusCard title="Partner Focus" timeText={timeText} />
         </div>
       </div>
 
@@ -77,4 +85,3 @@ export default function ConnectionView({ onDisconnect }: { onDisconnect: () => v
     </div>
   );
 }
-

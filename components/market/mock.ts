@@ -38,7 +38,7 @@ export const MARKET_ITEMS: MarketItem[] = [
     id: "4",
     category: "requests",
     tag: "求带饭",
-    title: "图书馆到二食堂，帮带一份轻食沙拉，感谢通证",
+    title: "图书馆到二食堂，帮带一份轻食沙拉，感谢算力打赏",
     reward: 50,
     distanceM: 50,
   },
@@ -75,4 +75,3 @@ export const MARKET_ITEMS: MarketItem[] = [
     distanceM: 150,
   },
 ];
-

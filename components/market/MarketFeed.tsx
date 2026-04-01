@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import MarketCard from "./MarketCard";
-import type { MarketItem } from "./mock";
+import type { MarketItemRow } from "./types";
 
 const listVariants = {
   hidden: {},
@@ -14,7 +14,17 @@ const listVariants = {
   },
 } as const;
 
-export default function MarketFeed({ items }: { items: MarketItem[] }) {
+export default function MarketFeed({
+  items,
+  acceptingId,
+  onAccept,
+  highlightedId,
+}: {
+  items: MarketItemRow[];
+  acceptingId: string | null;
+  onAccept: (item: MarketItemRow, el: HTMLElement) => void;
+  highlightedId?: string | null;
+}) {
   return (
     <motion.section
       variants={listVariants}
@@ -23,9 +33,14 @@ export default function MarketFeed({ items }: { items: MarketItem[] }) {
       className="grid grid-cols-2 gap-4"
     >
       {items.map((item) => (
-        <MarketCard key={item.id} item={item} />
+        <MarketCard
+          key={item.id}
+          item={item}
+          accepting={acceptingId === item.id}
+          onAccept={onAccept}
+          highlighted={highlightedId === item.id}
+        />
       ))}
     </motion.section>
   );
 }
-

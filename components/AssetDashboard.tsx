@@ -11,12 +11,20 @@ function StatCard({ label, value }: { label: string; value: string }) {
   );
 }
 
-export default function AssetDashboard() {
+export default function AssetDashboard({
+  computePower,
+  totalComputeMined,
+  fragmentCount,
+}: {
+  computePower: number;
+  totalComputeMined: number;
+  fragmentCount: number;
+}) {
   return (
-    <div className="grid grid-cols-2 gap-3">
-      <StatCard label="算力 (Focus Time)" value="12.5h" />
-      <StatCard label="通证 (Meta Coins)" value="340" />
+    <div className="grid grid-cols-3 gap-3">
+      <StatCard label="实时算力" value={String(Math.max(0, Math.round(computePower)))} />
+      <StatCard label="历史总产量" value={String(Math.max(0, Math.round(totalComputeMined)))} />
+      <StatCard label="碎片仓储" value={String(Math.max(0, Math.round(fragmentCount)))} />
     </div>
   );
 }
-

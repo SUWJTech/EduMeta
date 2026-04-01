@@ -1,6 +1,6 @@
 "use client";
 
-import type { MarketCategory } from "./mock";
+import type { MarketCategory } from "./types";
 
 const PILLS: Array<{ key: MarketCategory; label: string }> = [
   { key: "all", label: "全部 (All)" },
@@ -41,4 +41,3 @@ export default function FilterPills({
     </div>
   );
 }
-

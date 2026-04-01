@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduMeta Energy Core</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --panel-bg: rgba(2, 8, 24, 0.72);
+        --panel-line: rgba(56, 189, 248, 0.24);
+        --text: rgba(186, 230, 253, 0.92);
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: radial-gradient(circle at 50% 26%, #09203d 0%, #030712 48%, #010103 100%);
+        font-family: "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, monospace;
+      }
+
+      #energy-canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      #hud {
+        pointer-events: none;
+        position: fixed;
+        inset: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        color: var(--text);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      #hud .badge {
+        height: fit-content;
+        border: 1px solid var(--panel-line);
+        background: var(--panel-bg);
+        backdrop-filter: blur(8px);
+        border-radius: 999px;
+        padding: 6px 10px;
+      }
+
+      #vj-console {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        width: min(300px, calc(100vw - 20px));
+        border: 1px solid var(--panel-line);
+        background: var(--panel-bg);
+        border-radius: 14px;
+        backdrop-filter: blur(12px);
+        color: var(--text);
+        transform: translateY(calc(100% + 16px));
+        opacity: 0;
+        transition: transform 220ms ease, opacity 220ms ease;
+        pointer-events: none;
+      }
+
+      #vj-console.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      #vj-console .head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(125, 211, 252, 0.2);
+        padding: 10px 12px;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+      }
+
+      #vj-console .body {
+        display: grid;
+        gap: 9px;
+        padding: 10px 12px 12px;
+      }
+
+      #vj-console label {
+        display: grid;
+        gap: 4px;
+        font-size: 10px;
+      }
+
+      #vj-console input[type="range"] {
+        width: 100%;
+        accent-color: #38bdf8;
+      }
+
+      #vj-console button {
+        border: 1px solid rgba(186, 230, 253, 0.26);
+        background: rgba(14, 116, 144, 0.22);
+        color: var(--text);
+        border-radius: 10px;
+        padding: 6px 8px;
+        font-size: 11px;
+      }
+
+      #hint {
+        position: fixed;
+        left: 10px;
+        bottom: 10px;
+        color: rgba(186, 230, 253, 0.6);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+    </style>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  </head>
+  <body>
+    <canvas id="energy-canvas"></canvas>
+
+    <div id="hud">
+      <div class="badge">EDUMETA / ENERGY LIFE CORE</div>
+      <div class="badge" data-role="fps">-- FPS</div>
+    </div>
+
+    <aside id="vj-console" aria-label="VJ Console">
+      <div class="head">
+        <span>VJ CONSOLE</span>
+        <span data-role="field-label">逆向生长</span>
+      </div>
+      <div class="body">
+        <label>Progress
+          <input data-role="progress" type="range" min="0" max="1" step="0.01" value="0.2" />
+        </label>
+        <label>Field
+          <input data-role="field" type="range" min="0" max="29" step="1" value="0" />
+        </label>
+        <label>Bloom
+          <input data-role="bloom" type="range" min="0.2" max="2" step="0.01" value="0.9" />
+        </label>
+        <label>Afterimage
+          <input data-role="afterimage" type="range" min="0.6" max="0.99" step="0.01" value="0.9" />
+        </label>
+        <label>Time Scale
+          <input data-role="speed" type="range" min="0.2" max="2.2" step="0.01" value="1" />
+        </label>
+        <button data-role="gesture" type="button">Enable MediaPipe Pinch</button>
+      </div>
+    </aside>
+
+    <div id="hint">press "V" to toggle VJ console</div>
+
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const embed = params.get("embed") === "1";
+        if (!embed) return;
+        const hud = document.getElementById("hud");
+        const hint = document.getElementById("hint");
+        const panel = document.getElementById("vj-console");
+        if (hud) hud.style.display = "none";
+        if (hint) hint.style.display = "none";
+        if (panel) panel.style.display = "none";
+      })();
+    </script>
+
+    <script type="module" src="./render.js"></script>
+  </body>
+</html>
