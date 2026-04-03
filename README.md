@@ -30,14 +30,16 @@ EduMeta 目标是把学习和创作过程，变成一个有生命、有经济、
 ---
 
 ## Feature Highlights
-
 <div align="center">
   <div style="display: flex; gap: 8px; overflow-x: auto; padding: 10px 0;">
     <img src="https://github.com/user-attachments/assets/74f94fc3-8056-438a-8f17-86048c275745" alt="EduMeta Preview 1" style="height: 360px; border-radius: 10px; object-fit: cover;">
     <img src="https://github.com/user-attachments/assets/f2a9e58a-64a8-4bdc-b46b-9bc957b0daa1" alt="EduMeta Preview 2" style="height: 360px; border-radius: 10px; object-fit: cover;">
     <img src="https://github.com/user-attachments/assets/0bffe488-a5e4-407e-8b0f-1eb1281f7b2e" alt="EduMeta Preview 3" style="height: 360px; border-radius: 10px; object-fit: cover;">
     <img src="https://github.com/user-attachments/assets/91a38977-7030-423b-a60f-bef9271cc8e9" alt="EduMeta Preview 4" style="height: 360px; border-radius: 10px; object-fit: cover;">
-    <img src="https://github.com/user-attachments/assets/ed592ce7-5892-45bb-ad4a-a147c953e5dd" alt="EduMeta Preview 5" style="height: 360px; border-radius: 10px; object-fit: cover;">
+    <img src="https://github.com/user-attachments/assets/8f2451f6-7947-4b8a-bf46-64914a0c3e07" alt="EduMeta Preview 5" style="height: 360px; border-radius: 10px; object-fit: cover;">
+    <img src="https://github.com/user-attachments/assets/24c6d309-fe8e-4b03-9aba-e1611ca48bf8" alt="EduMeta Preview 6" style="height: 360px; border-radius: 10px; object-fit: cover;">
+    <img src="https://github.com/user-attachments/assets/a87cf565-431d-483a-b754-7ed48dd081ca" alt="EduMeta Preview 7" style="height: 360px; border-radius: 10px; object-fit: cover;">
+    <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/229098271/573377327-ed592ce7-5892-49bb-ad4a-a147c953e5dd.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260403T035848Z&X-Amz-Expires=300&X-Amz-Signature=d51103a89bafad6f3309465d7b97804a752b2fa5bfbbe0e9bbd4a6a763a5b8cf&X-Amz-SignedHeaders=host" alt="EduMeta Preview 8" style="height: 360px; border-radius: 10px; object-fit: cover;">
   </div>
 </div>
 
