@@ -31,6 +31,17 @@ EduMeta 目标是把学习和创作过程，变成一个有生命、有经济、
 
 ## Feature Highlights
 
+<div align="center">
+  <div style="display: flex; gap: 8px; overflow-x: auto; padding: 10px 0;">
+    <img src="https://github.com/user-attachments/assets/74f94fc3-8056-438a-8f17-86048c275745" alt="EduMeta Preview 1" style="height: 360px; border-radius: 10px; object-fit: cover;">
+    <img src="https://github.com/user-attachments/assets/f2a9e58a-64a8-4bdc-b46b-9bc957b0daa1" alt="EduMeta Preview 2" style="height: 360px; border-radius: 10px; object-fit: cover;">
+    <img src="https://github.com/user-attachments/assets/0bffe488-a5e4-407e-8b0f-1eb1281f7b2e" alt="EduMeta Preview 3" style="height: 360px; border-radius: 10px; object-fit: cover;">
+    <img src="https://github.com/user-attachments/assets/91a38977-7030-423b-a60f-bef9271cc8e9" alt="EduMeta Preview 4" style="height: 360px; border-radius: 10px; object-fit: cover;">
+    <img src="https://github.com/user-attachments/assets/ed592ce7-5892-45bb-ad4a-a147c953e5dd" alt="EduMeta Preview 5" style="height: 360px; border-radius: 10px; object-fit: cover;">
+  </div>
+</div>
+
+
 ### 1) The Awakening（首次登录唤醒序列）
 - 新用户注册后先进入 `/awakening`
 - 黑屏终端 + 打字机节点初始化
